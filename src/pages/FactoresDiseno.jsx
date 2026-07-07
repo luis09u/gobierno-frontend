@@ -5,7 +5,7 @@ export default function FactoresDiseno() {
   const [cargando, setCargando] = useState(true);
 
   useEffect(() => {
-    fetch('gobierno-backend-production.up.railway.app/api/cobit/factores')
+    fetch('https://gobierno-backend-production.up.railway.app/api/cobit/factores')
       .then(res => res.json())
       .then(data => { setFactores(data); setCargando(false); })
       .catch(err => { console.error(err); setCargando(false); });
