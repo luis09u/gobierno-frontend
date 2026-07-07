@@ -48,7 +48,7 @@ export default function VistaDetalle({ procesoId, onBack }) {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    fetch(`https://gobierno-backend-production.up.railway.app${procesoId}`)
+    fetch(`https://gobierno-backend-production.up.railway.app/api/cobit/procesos/${procesoId}`)
       .then(response => {
         if (!response.ok) throw new Error('No se encontraron datos para este proceso.');
         return response.json();
