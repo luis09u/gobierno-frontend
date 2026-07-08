@@ -10,7 +10,7 @@ export const procesosEDM = [
 export const procesosAPO = [
   { id: 'APO01', nombre: 'Gestionar el marco de gestión de I&T' },
   { id: 'APO02', nombre: 'Gestionar la estrategia' },
-  { id: 'APO03', nombre: 'Gestionar la arquitectura empresarial', deshabilitado: true },
+  { id: 'APO03', nombre: 'Gestionar la arquitectura empresarial'},
   { id: 'APO04', nombre: 'Gestionar la innovación', deshabilitado: true },
   { id: 'APO05', nombre: 'Gestionar el portafolio', deshabilitado: true },
   { id: 'APO06', nombre: 'Gestionar el presupuesto y los costos', deshabilitado: true },
