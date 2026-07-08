@@ -9,6 +9,13 @@ export default function PanelPrincipal() {
     return <VistaDetalle procesoId={procesoSeleccionado} onBack={() => setProcesoSeleccionado(null)} />;
   }
 
+  const handleLimpiarTodo = () => {
+        if(window.confirm('CUIDADO: ¿Estás seguro de reiniciar TODA la auditoría global? Todos los procesos volverán a N (0%).')) {
+        fetch('https://gobierno-backend-production.up.railway.app/api/cobit/procesos/limpiar-todo', { method: 'POST' })
+      .then(() => alert('Auditoría global reiniciada con éxito.'));
+        }
+        };
+
   const TarjetaProceso = ({ proc, colorClase }) => (
     <div 
       onClick={() => !proc.deshabilitado && setProcesoSeleccionado(proc.id)}

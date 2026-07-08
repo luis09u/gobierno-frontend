@@ -17,6 +17,20 @@ const AcordeonSeccion = ({ titulo, children }) => {
 
 const ActividadRow = ({ actividad }) => {
   const [calificacion, setCalificacion] = useState(actividad.calificacionActual || 'N');
+  const [guardando, setGuardando] = useState(false);
+
+  const handleCambio = (e) => {
+    const nuevoValor = e.target.value;
+    setCalificacion(nuevoValor);
+    setGuardando(true);
+
+    // Guardado en tiempo real
+    fetch(`https://gobierno-backend-production.up.railway.app/api/cobit/actividades/${actividad.idActividad}/calificar?valor=${nuevoValor}`, {
+      method: 'PUT'
+    }).then(() => setGuardando(false))
+      .catch(err => { console.error(err); setGuardando(false); });
+  };
+
   const getBadgeColor = (val) => {
     switch (val) {
       case 'N': return 'bg-red-500/20 text-red-400 border-red-500/50';
@@ -26,6 +40,7 @@ const ActividadRow = ({ actividad }) => {
       default: return 'bg-gray-700 text-gray-300';
     }
   };
+
   return (
     <div className="flex items-start justify-between p-5 hover:bg-white/5 transition-colors gap-6">
       <div className="flex-1">
@@ -33,19 +48,29 @@ const ActividadRow = ({ actividad }) => {
         <span className="text-sm text-gray-400 mt-2 block">Meta: Nivel <span className="font-bold text-brand-accent px-1">{actividad.nivelCapacidadEsperado}</span></span>
       </div>
       <div className="flex items-center gap-3 mt-1">
-        <select value={calificacion} onChange={(e) => setCalificacion(e.target.value)} className="bg-brand-dark border border-gray-600 text-white text-base rounded-md focus:ring-brand-primary focus:border-brand-primary block p-2 outline-none cursor-pointer w-28 shadow-inner">
+        {guardando && <span className="text-xs text-brand-primary animate-pulse">Guardando...</span>}
+        <select value={calificacion} onChange={handleCambio} className="bg-brand-dark border border-gray-600 text-white text-base rounded-md focus:ring-brand-primary outline-none cursor-pointer w-28 p-2">
           <option value="N">N (0-15%)</option><option value="P">P (15-50%)</option><option value="L">L (50-85%)</option><option value="F">F (85-100%)</option>
         </select>
-        <div className={`w-10 h-10 flex items-center justify-center rounded border font-bold shadow-sm text-base ${getBadgeColor(calificacion)}`}>{calificacion}</div>
+        <div className={`w-10 h-10 flex items-center justify-center rounded border font-bold text-base ${getBadgeColor(calificacion)}`}>{calificacion}</div>
       </div>
     </div>
   );
 };
-
 export default function VistaDetalle({ procesoId, onBack }) {
   const [proceso, setProceso] = useState(null);
   const [cargando, setCargando] = useState(true);
   const [error, setError] = useState(null);
+
+  const handleLimpiarProceso = () => {
+  if(window.confirm(`¿Estás seguro de reiniciar la auditoría del proceso ${procesoId}?`)) {
+    fetch(`https://gobierno-backend-production.up.railway.app/api/cobit/procesos/${procesoId}/limpiar`, { method: 'POST' })
+      .then(() => {
+        alert('Proceso reiniciado. Recargando datos...');
+        window.location.reload(); // Recarga para ver los 'N' nuevamente
+      });
+  }
+};
 
   useEffect(() => {
     fetch(`https://gobierno-backend-production.up.railway.app/api/cobit/procesos/${procesoId}`)
@@ -62,9 +87,15 @@ export default function VistaDetalle({ procesoId, onBack }) {
 
   return (
     <div className="max-w-6xl mx-auto p-6 mt-6 animate-[fadeIn_0.4s_ease-in-out]">
-      <button onClick={onBack} className="mb-6 text-gray-300 hover:text-white transition-colors flex items-center gap-2 text-base font-medium bg-brand-card py-2 px-4 rounded-lg border border-white/10 shadow-md hover:border-brand-accent/50 w-fit">
-        ← Volver
-      </button>
+     <div className="flex justify-between items-center mb-6">
+  <button onClick={onBack} className="text-gray-300 hover:text-white transition-colors flex items-center gap-2 text-base font-medium bg-brand-card py-2 px-4 rounded-lg border border-white/10 shadow-md hover:border-brand-accent/50">
+    ← Volver al Panel
+  </button>
+  <button onClick={handleLimpiarProceso} className="text-red-400 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium bg-red-500/10 hover:bg-red-500/30 py-2 px-4 rounded-lg border border-red-500/30 shadow-md">
+    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+    Limpiar Auditoría
+  </button>
+</div>
 
       <div className="bg-brand-card p-8 rounded-xl border border-brand-primary/40 shadow-2xl mb-8 relative overflow-hidden">
         <div className="absolute top-0 right-0 bg-brand-primary/20 text-brand-accent px-4 py-1 rounded-bl-lg text-sm font-bold tracking-widest uppercase shadow-sm">

@@ -4,6 +4,7 @@
 @tailwind components;
 /* stylelint-disable-next-line at-rule-no-unknown */
 @tailwind utilities;
+/* stylelint-disable-next-line at-rule-no-unknown */
 
 body {
   background-color: #0f172a;
