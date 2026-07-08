@@ -1,7 +1,6 @@
 import { useState } from 'react';
 
 export default function MetasCobit() {
-  // Diccionario de Metas COBIT aplicadas al caso Toyota OTA
   const metasEmpresariales = [
     { id: 'EG01', titulo: 'Portafolio de productos y servicios competitivos', descripcion: 'Transición de Toyota hacia vehículos definidos por software (Arene OS) para competir en el mercado de autos conectados.' },
     { id: 'EG05', titulo: 'Cultura de innovación orientada al cliente', descripcion: 'Ofrecer nuevas funcionalidades vehiculares por suscripción OTA, manteniendo el principio Customer-First.' },
