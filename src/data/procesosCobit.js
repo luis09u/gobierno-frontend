@@ -25,8 +25,8 @@ export const procesosAPO = [
 
 export const procesosBAI = [
   { id: 'BAI01', nombre: 'Gestionar los programas y proyectos' },
-  { id: 'BAI02', nombre: 'Gestionar la definición de requisitos', deshabilitado: true },
-  { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones', deshabilitado: true },
+  { id: 'BAI02', nombre: 'Gestionar la definición de requisitos'},
+  { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones' },
   { id: 'BAI04', nombre: 'Gestionar la disponibilidad y la capacidad', deshabilitado: true },
   { id: 'BAI05', nombre: 'Gestionar los cambios organizativos', deshabilitado: true },
   { id: 'BAI06', nombre: 'Gestionar los cambios de TI', deshabilitado: true },
