@@ -1,4 +1,3 @@
-
 export const procesosEDM = [
   { id: 'EDM01', nombre: 'Asegurar el establecimiento y mantenimiento del marco de gobierno' },
   { id: 'EDM02', nombre: 'Asegurar la entrega de beneficios' },
@@ -8,18 +7,48 @@ export const procesosEDM = [
 ];
 
 export const procesosAPO = [
-  { id: 'APO01', nombre: 'Gestionar el marco de gestión de I&T'},
-  { id: 'APO02', nombre: 'Gestionar la estrategia'},
-  { id: 'APO03', nombre: 'Gestionar la arquitectura empresarial'},
-  { id: 'APO04', nombre: 'Gestionar la innovación'},
-  { id: 'APO05', nombre: 'Gestionar el portafolio'},
-  { id: 'APO06', nombre: 'Gestionar el presupuesto y los costos'},
-  { id: 'APO07', nombre: 'Gestionar los recursos humanos'},
-  { id: 'APO08', nombre: 'Gestionar las relaciones'},
-  { id: 'APO09', nombre: 'Gestionar los acuerdos de servicio'},
+  { id: 'APO01', nombre: 'Gestionar el marco de gestión de I&T' },
+  { id: 'APO02', nombre: 'Gestionar la estrategia' },
+  { id: 'APO03', nombre: 'Gestionar la arquitectura empresarial' },
+  { id: 'APO04', nombre: 'Gestionar la innovación' },
+  { id: 'APO05', nombre: 'Gestionar el portafolio' },
+  { id: 'APO06', nombre: 'Gestionar el presupuesto y los costos' },
+  { id: 'APO07', nombre: 'Gestionar los recursos humanos' },
+  { id: 'APO08', nombre: 'Gestionar las relaciones' },
+  { id: 'APO09', nombre: 'Gestionar los acuerdos de servicio' },
   { id: 'APO10', nombre: 'Gestionar los proveedores' },
   { id: 'APO11', nombre: 'Gestionar la calidad' },
   { id: 'APO12', nombre: 'Gestionar el riesgo' },
-  { id: 'APO13', nombre: 'Gestionar la seguridad'},
-  { id: 'APO14', nombre: 'Gestionar los datos'}
+  { id: 'APO13', nombre: 'Gestionar la seguridad' },
+  { id: 'APO14', nombre: 'Gestionar los datos' }
+];
+
+export const procesosBAI = [
+  { id: 'BAI01', nombre: 'Gestionar los programas y proyectos' },
+  { id: 'BAI02', nombre: 'Gestionar la definición de requisitos', deshabilitado: true },
+  { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones', deshabilitado: true },
+  { id: 'BAI04', nombre: 'Gestionar la disponibilidad y la capacidad', deshabilitado: true },
+  { id: 'BAI05', nombre: 'Gestionar los cambios organizativos', deshabilitado: true },
+  { id: 'BAI06', nombre: 'Gestionar los cambios de TI', deshabilitado: true },
+  { id: 'BAI07', nombre: 'Gestionar la aceptación y la transición de los cambios de TI', deshabilitado: true },
+  { id: 'BAI08', nombre: 'Gestionar el conocimiento', deshabilitado: true },
+  { id: 'BAI09', nombre: 'Gestionar los activos', deshabilitado: true },
+  { id: 'BAI10', nombre: 'Gestionar la configuración', deshabilitado: true },
+  { id: 'BAI11', nombre: 'Gestionar los proyectos', deshabilitado: true }
+];
+
+export const procesosDSS = [
+  { id: 'DSS01', nombre: 'Gestionar las operaciones', deshabilitado: true },
+  { id: 'DSS02', nombre: 'Gestionar las peticiones y los incidentes de servicio', deshabilitado: true },
+  { id: 'DSS03', nombre: 'Gestionar los problemas', deshabilitado: true },
+  { id: 'DSS04', nombre: 'Gestionar la continuidad', deshabilitado: true },
+  { id: 'DSS05', nombre: 'Gestionar los servicios de seguridad', deshabilitado: true },
+  { id: 'DSS06', nombre: 'Gestionar los controles de los procesos de negocio', deshabilitado: true }
+];
+
+export const procesosMEA = [
+  { id: 'MEA01', nombre: 'Gestionar la monitorización del rendimiento y la conformidad', deshabilitado: true },
+  { id: 'MEA02', nombre: 'Gestionar el sistema de control interno', deshabilitado: true },
+  { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos', deshabilitado: true },
+  { id: 'MEA04', nombre: 'Gestionar el aseguramiento', deshabilitado: true }
 ];
