@@ -77,14 +77,20 @@ export default function PanelPrincipal() {
 
       {/* DOMINIO EDM */}
       <div className="mb-14">
-        <div className="flex items-center gap-4 mb-6 border-b border-brand-accent/30 pb-3">
-          <div className="bg-brand-accent/20 p-2 rounded-lg">
-            <svg className="w-6 h-6 text-brand-accent" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
+        <div className="flex items-center gap-4 mb-6 border-b border-amber-600/30 pb-3">
+          <div className="bg-amber-600/20 p-2 rounded-lg">
+            <svg className="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 21V5a2 2 0 00-2-2H7a2 2 0 00-2 2v16m14 0h2m-2 0h-5m-9 0H3m2 0h5M9 7h1m-1 4h1m4-4h1m-1 4h1m-5 10v-5a1 1 0 011-1h2a1 1 0 011 1v5m-4 0h4"></path></svg>
           </div>
-          <h3 className="text-2xl font-semibold text-brand-accent tracking-wide">Evaluar, Dirigir y Monitorizar (EDM)</h3>
+          <h3 className="text-2xl font-semibold text-amber-500 tracking-wide">Evaluar, Dirigir y Monitorizar (EDM)</h3>
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {procesosEDM.map((proc) => <TarjetaProceso key={proc.id} proc={proc} colorClase="bg-brand-primary/20 text-brand-accent border-brand-primary/30 group-hover:bg-brand-primary group-hover:text-white" />)}
+          {procesosEDM.map((proc) => (
+            <TarjetaProceso 
+              key={proc.id} 
+              proc={proc} 
+              colorClase="bg-amber-500/20 text-amber-400 border-amber-500/30 group-hover:bg-amber-600 group-hover:text-white" 
+            />
+          ))}
         </div>
       </div>
 
