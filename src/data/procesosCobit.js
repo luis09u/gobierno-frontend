@@ -26,28 +26,28 @@ export const procesosAPO = [
 export const procesosBAI = [
   { id: 'BAI01', nombre: 'Gestionar los programas y proyectos' },
   { id: 'BAI02', nombre: 'Gestionar la definición de requisitos'},
-  { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones' },
-  { id: 'BAI04', nombre: 'Gestionar la disponibilidad y la capacidad', deshabilitado: true },
-  { id: 'BAI05', nombre: 'Gestionar los cambios organizativos', deshabilitado: true },
-  { id: 'BAI06', nombre: 'Gestionar los cambios de TI', deshabilitado: true },
-  { id: 'BAI07', nombre: 'Gestionar la aceptación y la transición de los cambios de TI', deshabilitado: true },
-  { id: 'BAI08', nombre: 'Gestionar el conocimiento', deshabilitado: true },
-  { id: 'BAI09', nombre: 'Gestionar los activos', deshabilitado: true },
-  { id: 'BAI10', nombre: 'Gestionar la configuración', deshabilitado: true },
-  { id: 'BAI11', nombre: 'Gestionar los proyectos', deshabilitado: true }
+  { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones'},
+  { id: 'BAI04', nombre: 'Gestionar la disponibilidad y la capacidad'},
+  { id: 'BAI05', nombre: 'Gestionar los cambios organizativos'},
+  { id: 'BAI06', nombre: 'Gestionar los cambios de TI'},
+  { id: 'BAI07', nombre: 'Gestionar la aceptación y la transición de los cambios de TI'},
+  { id: 'BAI08', nombre: 'Gestionar el conocimiento'},
+  { id: 'BAI09', nombre: 'Gestionar los activos'},
+  { id: 'BAI10', nombre: 'Gestionar la configuración'},
+  { id: 'BAI11', nombre: 'Gestionar los proyectos'}
 ];
 
 export const procesosDSS = [
-  { id: 'DSS01', nombre: 'Gestionar las operaciones', deshabilitado: true },
-  { id: 'DSS02', nombre: 'Gestionar las peticiones y los incidentes de servicio', deshabilitado: true },
-  { id: 'DSS03', nombre: 'Gestionar los problemas', deshabilitado: true },
-  { id: 'DSS04', nombre: 'Gestionar la continuidad', deshabilitado: true },
-  { id: 'DSS05', nombre: 'Gestionar los servicios de seguridad', deshabilitado: true },
-  { id: 'DSS06', nombre: 'Gestionar los controles de los procesos de negocio', deshabilitado: true }
+  { id: 'DSS01', nombre: 'Gestionar las operaciones'},
+  { id: 'DSS02', nombre: 'Gestionar las peticiones y los incidentes de servicio' },
+  { id: 'DSS03', nombre: 'Gestionar los problemas' },
+  { id: 'DSS04', nombre: 'Gestionar la continuidad'},
+  { id: 'DSS05', nombre: 'Gestionar los servicios de seguridad' },
+  { id: 'DSS06', nombre: 'Gestionar los controles de los procesos de negocio' }
 ];
 
 export const procesosMEA = [
-  { id: 'MEA01', nombre: 'Gestionar la monitorización del rendimiento y la conformidad', deshabilitado: true },
+  { id: 'MEA01', nombre: 'Gestionar la monitorización del rendimiento y la conformidad'},
   { id: 'MEA02', nombre: 'Gestionar el sistema de control interno', deshabilitado: true },
   { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos', deshabilitado: true },
   { id: 'MEA04', nombre: 'Gestionar el aseguramiento', deshabilitado: true }
