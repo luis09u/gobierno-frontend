@@ -48,7 +48,7 @@ export const procesosDSS = [
 
 export const procesosMEA = [
   { id: 'MEA01', nombre: 'Gestionar la monitorización del rendimiento y la conformidad'},
-  { id: 'MEA02', nombre: 'Gestionar el sistema de control interno', deshabilitado: true },
-  { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos', deshabilitado: true },
-  { id: 'MEA04', nombre: 'Gestionar el aseguramiento', deshabilitado: true }
+  { id: 'MEA02', nombre: 'Gestionar el sistema de control interno'},
+  { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos'},
+  { id: 'MEA04', nombre: 'Gestionar el aseguramiento'}
 ];
