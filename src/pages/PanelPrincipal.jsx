@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import VistaDetalle from '../components/VistaDetalle';
 import { procesosEDM, procesosAPO, procesosBAI, procesosDSS, procesosMEA } from '../data/procesosCobit';
+import styles from './PanelPrincipal.module.css';
 
 export default function PanelPrincipal() {
   const [procesoSeleccionado, setProcesoSeleccionado] = useState(null);
@@ -36,27 +37,42 @@ export default function PanelPrincipal() {
     return <VistaDetalle procesoId={procesoSeleccionado} onBack={() => setProcesoSeleccionado(null)} />;
   }
 
-  const TarjetaProceso = ({ proc, colorClase }) => (
-    <div 
-      onClick={() => !proc.deshabilitado && setProcesoSeleccionado(proc.id)}
-      className={`bg-brand-card rounded-xl p-6 border border-white/10 shadow-xl transition-all duration-300 group
-        ${proc.deshabilitado 
-          ? 'opacity-40 cursor-not-allowed grayscale' 
-          : 'cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-brand-primary/50'
-        }
-      `}
-    >
-      <div className="flex items-center justify-between mb-4">
-        <span className={`px-3 py-1 rounded-md font-bold text-sm border shadow-sm transition-colors ${proc.deshabilitado ? 'bg-gray-800 text-gray-500 border-gray-700' : colorClase}`}>
-          {proc.id}
-        </span>
-        {proc.deshabilitado && <span className="text-xs text-gray-500 uppercase tracking-widest font-bold">Próximamente</span>}
+  // 2. Modificamos la Tarjeta para que aplique el CSS dinámicamente
+  const TarjetaProceso = ({ proc, colorClase }) => {
+    // Evaluamos si el proceso es crítico
+    const esCritico = proc.esCritico;
+
+    return (
+      <div 
+        onClick={() => !proc.deshabilitado && setProcesoSeleccionado(proc.id)}
+        className={`p-6 rounded-xl transition-all duration-300 group
+          ${proc.deshabilitado 
+            ? 'bg-brand-card opacity-40 cursor-not-allowed grayscale border border-white/10' 
+            : esCritico
+              ? `${styles.tarjetaCritica} cursor-pointer` // Aplica el módulo CSS a los 6 críticos
+              : 'bg-brand-card border border-white/10 shadow-xl cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-brand-primary/50' // Estilo estándar para los otros 34
+          }
+        `}
+      >
+        <div className="flex items-center justify-between mb-4">
+          <span className={`px-3 py-1 rounded-md font-bold text-sm border shadow-sm transition-colors ${proc.deshabilitado ? 'bg-gray-800 text-gray-500 border-gray-700' : colorClase}`}>
+            {proc.id}
+          </span>
+          
+          {proc.deshabilitado && <span className="text-xs text-gray-500 uppercase tracking-widest font-bold">Próximamente</span>}
+          
+          {/* Etiqueta animada exclusiva para el núcleo de Internet de las Cosas */}
+          {esCritico && !proc.deshabilitado && (
+            <span className={styles.etiquetaCritica}>Núcleo IoT</span>
+          )}
+        </div>
+        
+        <h4 className={`text-lg font-medium transition-colors ${proc.deshabilitado ? 'text-gray-500' : esCritico ? 'text-sky-200 group-hover:text-white' : 'text-white group-hover:text-brand-accent'}`}>
+          {proc.nombre}
+        </h4>
       </div>
-      <h4 className={`text-lg font-medium transition-colors ${proc.deshabilitado ? 'text-gray-500' : 'text-white group-hover:text-brand-accent'}`}>
-        {proc.nombre}
-      </h4>
-    </div>
-  );
+    );
+  };
 
   return (
     <div className="max-w-7xl mx-auto p-6 mt-6 animate-[fadeIn_0.4s_ease-in-out]">
@@ -64,7 +80,7 @@ export default function PanelPrincipal() {
       <div className="mb-12 flex flex-col md:flex-row md:items-start justify-between gap-4 border-l-4 border-brand-primary pl-5 py-1">
         <div>
           <h2 className="text-4xl font-bold text-white mb-3 tracking-wide">Panel de Gobierno TI</h2>
-          <p className="text-gray-300 text-lg">Seleccione un proceso del marco COBIT 2019 para auditar su nivel de capacidad corporativa.</p>
+          <p className="text-gray-300 text-lg">Seleccione un proceso del marco COBIT 2019 para auditar su nivel de capacidad corporativa. <br/><span className="text-sky-400 font-semibold">Los procesos resaltados representan el núcleo crítico para la actualización telemática de vehículos.</span></p>
         </div>
         <button 
           onClick={handleLimpiarTodo} disabled={reiniciando}
@@ -85,11 +101,7 @@ export default function PanelPrincipal() {
         </div>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {procesosEDM.map((proc) => (
-            <TarjetaProceso 
-              key={proc.id} 
-              proc={proc} 
-              colorClase="bg-amber-500/20 text-amber-400 border-amber-500/30 group-hover:bg-amber-600 group-hover:text-white" 
-            />
+            <TarjetaProceso key={proc.id} proc={proc} colorClase="bg-amber-500/20 text-amber-400 border-amber-500/30 group-hover:bg-amber-600 group-hover:text-white" />
           ))}
         </div>
       </div>

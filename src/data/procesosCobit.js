@@ -18,7 +18,7 @@ export const procesosAPO = [
   { id: 'APO09', nombre: 'Gestionar los acuerdos de servicio' },
   { id: 'APO10', nombre: 'Gestionar los proveedores' },
   { id: 'APO11', nombre: 'Gestionar la calidad' },
-  { id: 'APO12', nombre: 'Gestionar el riesgo' },
+  { id: 'APO12', nombre: 'Gestionar el riesgo', esCritico: true },
   { id: 'APO13', nombre: 'Gestionar la seguridad' },
   { id: 'APO14', nombre: 'Gestionar los datos' }
 ];
@@ -29,8 +29,8 @@ export const procesosBAI = [
   { id: 'BAI03', nombre: 'Gestionar la identificación y construcción de soluciones'},
   { id: 'BAI04', nombre: 'Gestionar la disponibilidad y la capacidad'},
   { id: 'BAI05', nombre: 'Gestionar los cambios organizativos'},
-  { id: 'BAI06', nombre: 'Gestionar los cambios de TI'},
-  { id: 'BAI07', nombre: 'Gestionar la aceptación y la transición de los cambios de TI'},
+  { id: 'BAI06', nombre: 'Gestionar los cambios de TI', esCritico: true },
+  { id: 'BAI07', nombre: 'Gestionar la aceptación y la transición de los cambios de TI', esCritico: true },
   { id: 'BAI08', nombre: 'Gestionar el conocimiento'},
   { id: 'BAI09', nombre: 'Gestionar los activos'},
   { id: 'BAI10', nombre: 'Gestionar la configuración'},
@@ -38,11 +38,11 @@ export const procesosBAI = [
 ];
 
 export const procesosDSS = [
-  { id: 'DSS01', nombre: 'Gestionar las operaciones'},
+  { id: 'DSS01', nombre: 'Gestionar las operaciones', esCritico: true },
   { id: 'DSS02', nombre: 'Gestionar las peticiones y los incidentes de servicio' },
   { id: 'DSS03', nombre: 'Gestionar los problemas' },
-  { id: 'DSS04', nombre: 'Gestionar la continuidad'},
-  { id: 'DSS05', nombre: 'Gestionar los servicios de seguridad' },
+  { id: 'DSS04', nombre: 'Gestionar la continuidad', esCritico: true },
+  { id: 'DSS05', nombre: 'Gestionar los servicios de seguridad', esCritico: true },
   { id: 'DSS06', nombre: 'Gestionar los controles de los procesos de negocio' }
 ];
 
