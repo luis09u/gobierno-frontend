@@ -37,9 +37,9 @@ export default function PanelPrincipal() {
     return <VistaDetalle procesoId={procesoSeleccionado} onBack={() => setProcesoSeleccionado(null)} />;
   }
 
-  // 2. Modificamos la Tarjeta para que aplique el CSS dinámicamente
+ 
+
   const TarjetaProceso = ({ proc, colorClase }) => {
-    // Evaluamos si el proceso es crítico
     const esCritico = proc.esCritico;
 
     return (
@@ -49,8 +49,8 @@ export default function PanelPrincipal() {
           ${proc.deshabilitado 
             ? 'bg-brand-card opacity-40 cursor-not-allowed grayscale border border-white/10' 
             : esCritico
-              ? `${styles.tarjetaCritica} cursor-pointer` // Aplica el módulo CSS a los 6 críticos
-              : 'bg-brand-card border border-white/10 shadow-xl cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-brand-primary/50' // Estilo estándar para los otros 34
+              ? `${styles.tarjetaCritica} cursor-pointer`
+              : 'bg-brand-card border border-white/10 shadow-xl cursor-pointer hover:-translate-y-1 hover:shadow-2xl hover:border-brand-primary/50'
           }
         `}
       >
@@ -63,7 +63,7 @@ export default function PanelPrincipal() {
           
           {/* Etiqueta animada exclusiva para el núcleo de Internet de las Cosas */}
           {esCritico && !proc.deshabilitado && (
-            <span className={styles.etiquetaCritica}>Núcleo IoT</span>
+            <span className={styles.etiquetaCritica}>Núcleo OTA</span>
           )}
         </div>
         

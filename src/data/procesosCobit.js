@@ -1,7 +1,7 @@
 export const procesosEDM = [
   { id: 'EDM01', nombre: 'Asegurar el establecimiento y mantenimiento del marco de gobierno' },
   { id: 'EDM02', nombre: 'Asegurar la entrega de beneficios' },
-  { id: 'EDM03', nombre: 'Asegurar la optimización del riesgo' },
+  { id: 'EDM03', nombre: 'Asegurar la optimización del riesgo', esCritico: true },
   { id: 'EDM04', nombre: 'Asegurar la optimización de recursos' },
   { id: 'EDM05', nombre: 'Asegurar la transparencia hacia las partes interesadas' }
 ];
@@ -49,6 +49,6 @@ export const procesosDSS = [
 export const procesosMEA = [
   { id: 'MEA01', nombre: 'Gestionar la monitorización del rendimiento y la conformidad'},
   { id: 'MEA02', nombre: 'Gestionar el sistema de control interno'},
-  { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos'},
+  { id: 'MEA03', nombre: 'Gestionar el cumplimiento de los requisitos externos', esCritico: true },
   { id: 'MEA04', nombre: 'Gestionar el aseguramiento'}
 ];
