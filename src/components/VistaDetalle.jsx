@@ -31,6 +31,7 @@ const ActividadRow = ({ actividad }) => {
       .catch(err => { console.error(err); setGuardando(false); });
   };
 
+  //metricas de auditoria
   const getBadgeColor = (val) => {
     switch (val) {
       case 'N': return 'bg-red-500/20 text-red-400 border-red-500/50';
