@@ -3,6 +3,7 @@ import { useState } from 'react';
 import FactoresDiseno from './pages/FactoresDiseno';
 import MetasCobit from './pages/MetasCobit';
 import PanelPrincipal from './pages/PanelPrincipal';
+import MatrizCriticidad from './pages/MatrizCriticidad';
 
 export default function App() {
   const [vistaActual, setVistaActual] = useState('procesos'); 
@@ -26,6 +27,9 @@ export default function App() {
           <button onClick={() => setVistaActual('factores')} className={`px-6 h-full font-medium text-base transition-colors border-b-2 flex items-center ${vistaActual === 'factores' ? 'border-brand-primary text-white bg-white/5' : 'border-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}>
             Factores de Diseño
           </button>
+          <button onClick={() => setVistaActual('matriz')} className={`px-6 h-full font-medium text-base transition-colors border-b-2 flex items-center ${vistaActual === 'matriz' ? 'border-brand-primary text-white bg-white/5' : 'border-transparent text-gray-400 hover:text-white hover:bg-white/5'}`}>
+            Matriz de Criticidad
+          </button>
         </div>
       </nav>
 
@@ -33,6 +37,7 @@ export default function App() {
       {vistaActual === 'procesos' && <PanelPrincipal />}
       {vistaActual === 'metas' && <MetasCobit />}
       {vistaActual === 'factores' && <FactoresDiseno />}
+      {vistaActual === 'matriz' && <MatrizCriticidad />}
     </div>
   );
 }
